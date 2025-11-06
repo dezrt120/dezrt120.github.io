@@ -1,278 +1,421 @@
-# 🎮 RuneCut AutoBot
+# 🎮 RuneCut AutoBot v2.0 - FULLY FUNCTIONAL
 
-A comprehensive Tampermonkey automation bot for the RuneCut incremental RPG game.
+> **Status: ✅ WORKING** - All major modules are mapped and functional!
 
-## 📦 What's Included
+A complete, ready-to-use Tampermonkey automation bot for the RuneCut incremental RPG game.
 
-This package provides everything you need to create a fully automated bot for RuneCut:
-
-- **runecut-autobot.user.js** - Complete Tampermonkey script with modular architecture
-- **RUNECUT_SETUP.md** - Quick start guide and installation instructions
-- **RUNECUT_MAPPING_GUIDE.md** - Detailed tutorial on mapping game elements
-
-## ✨ Features
-
-### Automated Modules
-- 🌲 **Forestry** - Auto-chop trees with upgrade support
-- ⛏️ **Mining** - Auto-mine ores
-- 🎣 **Fishing** - Auto-catch fish
-- 🔨 **Smithing** - Auto-smith equipment
-- 🍳 **Cooking** - Auto-cook food with priority system
-- 🎨 **Crafting** - Auto-craft items
-- ⚔️ **Combat** - Auto-fight with health management & food eating
-- 🏗️ **Construction** - Template included
-- 👑 **Royal Service** - Template included
-- ✨ **Enchanting** - Template included
-- 💥 **Destruction** - Template included
-
-### Bot Features
-- ✅ Easy-to-use START/STOP control panel
-- ✅ Fully configurable settings
-- ✅ Debug logging for troubleshooting
-- ✅ Modular architecture (easy to extend)
-- ✅ Priority-based crafting system
-- ✅ Auto-upgrade to better resources
-- ✅ Safe action checking (won't spam clicks)
-
-## 🚀 Quick Start
+## 🚀 Quick Start (2 Minutes!)
 
 ### 1️⃣ Install Tampermonkey
-Install the Tampermonkey browser extension for your browser:
-- [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-- [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+Get the browser extension:
+- **Chrome**: [Chrome Web Store](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+- **Firefox**: [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
+- **Edge**: [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
-### 2️⃣ Install the Script
-1. Open Tampermonkey dashboard
-2. Create new script
-3. Copy contents of `runecut-autobot.user.js`
-4. Save (Ctrl+S)
+### 2️⃣ Install the Bot Script
+1. Open Tampermonkey dashboard (click the icon, then "Dashboard")
+2. Click "Create a new script" (+ icon)
+3. Delete all the default code
+4. Copy **ALL** the code from `runecut-autobot.user.js`
+5. Paste it in
+6. Hit **Ctrl+S** (or Cmd+S on Mac) to save
 
-### 3️⃣ Map Game Elements
-**⚠️ IMPORTANT:** The script needs to be configured for your game!
+### 3️⃣ Play the Game
+1. Go to: **https://html-classic.itch.zone/html/14955607-1422326/RuneCut/index.html**
+2. You'll see a blue control panel appear in the top-right corner
+3. Click the **▶ START** button
+4. Watch the magic happen! 🎉
 
-Read **`RUNECUT_MAPPING_GUIDE.md`** for step-by-step instructions on:
-- How to find game elements using browser DevTools
-- How to update the script with correct selectors
-- How to test your changes
-- Examples for each module
+## ✨ What This Bot Does
 
-### 4️⃣ Play!
-1. Visit https://angrypickle92.itch.io/runecut
-2. Look for the green control panel (top-right)
-3. Click START to begin automation
+### 🟢 Fully Automated Skills
+The bot will automatically:
 
-## 📖 Documentation
+- **🌲 Forestry** - Continuously chop trees for logs and XP
+- **⛏️ Mining** - Automatically mine ores
+- **🎣 Fishing** - Keep catching fish
+- **🔨 Smithing** - Smelt all ores automatically
+- **⚔️ Combat** - Fight monsters with intelligent health management:
+  - Auto-start fights in your preferred location
+  - Eat food when health drops below 30%
+  - Flee if health drops below 15%
+  - Continues fighting automatically
 
-| File | Description |
-|------|-------------|
-| **RUNECUT_SETUP.md** | Installation, configuration, and quick reference |
-| **RUNECUT_MAPPING_GUIDE.md** | Complete tutorial on mapping game elements |
-| **runecut-autobot.user.js** | The actual bot script |
+### 🎛️ Control Panel Features
+The bot includes a draggable control panel showing:
+- **Status** - Running/Stopped
+- **Current Activity** - What the bot is doing right now
+- **Health** - Your current HP percentage (color-coded)
+- **START/STOP** button - Easy control
+- **Config** button - Quick access to settings
+- **Hide** button - Minimize the panel
 
-## 🎯 How It Works
+### 🧠 Smart Features
+- **Priority System** - Does important tasks first (Combat > Smithing > Gathering)
+- **Activity Switching** - Automatically switches between tasks
+- **Safety Checks** - Won't spam clicks or break the game
+- **Real-time Logging** - See everything happening in console (F12)
+- **Configurable** - Change settings on-the-fly
 
-### Architecture
-```
-RuneCut AutoBot
-├── Configuration (CONFIG object)
-│   ├── Module enable/disable switches
-│   ├── Module-specific settings
-│   └── Timing/behavior settings
-│
-├── Utility Functions (Utils)
-│   ├── Logging
-│   ├── Element finding
-│   ├── Safe clicking
-│   └── Wait helpers
-│
-├── Game State Manager (GameState)
-│   ├── Read player stats
-│   ├── Check action status
-│   ├── Get inventory
-│   └── Detect combat state
-│
-├── Automation Modules
-│   ├── ForestryModule
-│   ├── MiningModule
-│   ├── FishingModule
-│   ├── CraftingModule
-│   ├── SmithingModule
-│   ├── CookingModule
-│   └── CombatModule
-│
-├── Bot Controller
-│   ├── Main loop
-│   ├── Module execution
-│   └── Start/stop logic
-│
-└── UI Control Panel
-    ├── START/STOP button
-    └── Status display
-```
+## ⚙️ Configuration
 
-### The Mapping Process
-1. **Inspect** game elements using browser DevTools (F12)
-2. **Find** unique selectors for buttons and UI elements
-3. **Test** selectors in browser console
-4. **Update** script functions with correct selectors
-5. **Verify** bot can interact with game
+The bot comes pre-configured with sensible defaults, but you can customize everything!
 
-## ⚙️ Configuration Examples
+### Quick Config via Console
 
-### Enable/Disable Modules
+Press **F12** to open console, then type:
+
 ```javascript
-CONFIG.modules.forestry = true;   // Enable forestry
-CONFIG.modules.combat = false;    // Disable combat
+// View current settings
+window.RuneCutConfig
+
+// Disable combat
+window.RuneCutConfig.combat.enabled = false
+
+// Change combat location
+window.RuneCutConfig.combat.preferredLocation = 'Volcano'
+
+// Adjust health thresholds
+window.RuneCutConfig.combat.healthThreshold = 50  // Eat at 50% HP
+window.RuneCutConfig.combat.fleeThreshold = 20    // Flee at 20% HP
+
+// Change bot speed
+window.RuneCutConfig.checkInterval = 3000  // Check every 3 seconds
+
+// Disable a skill
+window.RuneCutConfig.forestry.autoStart = false
+
+// Change activity priority
+window.RuneCutConfig.activityPriority = ['forestry', 'mining', 'fishing']
 ```
 
-### Adjust Bot Speed
-```javascript
-CONFIG.checkInterval = 2000;  // Check every 2 seconds (slower)
-CONFIG.checkInterval = 500;   // Check every 0.5 seconds (faster)
-```
+### Default Configuration
 
-### Combat Settings
 ```javascript
-CONFIG.combat = {
+{
+  // Activity priority (bot does these in order)
+  activityPriority: ['combat', 'smithing', 'cooking', 'forestry', 'mining', 'fishing'],
+
+  checkInterval: 2000,  // Check game state every 2 seconds
+
+  // Combat settings
+  combat: {
     enabled: true,
     autoFight: true,
-    targetMonster: 'Goblin',      // Fight specific monster
-    healthThreshold: 70,          // Retreat at 70% HP
+    preferredLocation: 'Swamp',
+    healthThreshold: 30,   // Eat food below 30% HP
+    fleeThreshold: 15,     // Flee below 15% HP
     autoEat: true,
-    foodToEat: 'Cooked Fish'
-};
+    attackStyle: 'Shared'
+  },
+
+  // Gathering skills
+  forestry: { enabled: true, autoStart: true },
+  mining: { enabled: true, autoStart: true },
+  fishing: { enabled: true, autoStart: true },
+
+  // Processing skills
+  smithing: { enabled: true, autoSmelt: true },
+  cooking: { enabled: true, autoStart: false },
+  crafting: { enabled: true, autoStart: false }
+}
 ```
 
-### Crafting Priority
+## 🎮 Using the Bot
+
+### Starting the Bot
+**Method 1:** Click the **▶ START** button on the control panel
+
+**Method 2:** Open console (F12) and type:
 ```javascript
-CONFIG.crafting = {
-    enabled: true,
-    priorityOrder: [
-        'Iron Sword',
-        'Iron Armor',
-        'Wooden Shield'
-    ]
-};
+window.RuneCutBot.start()
 ```
 
-## 🎮 Console Commands
+### Stopping the Bot
+**Method 1:** Click the **⏸ STOP** button
 
-Control the bot from browser console (F12):
+**Method 2:** In console:
+```javascript
+window.RuneCutBot.stop()
+```
+
+### Monitoring Activity
+- **Control Panel** - Shows current status and activity
+- **Browser Console (F12)** - Detailed logs of all actions
+- **Status Updates** - Real-time health and activity tracking
+
+### Console Commands
 
 ```javascript
-// Start/stop bot
+// Bot control
 window.RuneCutBot.start()
 window.RuneCutBot.stop()
 window.RuneCutBot.toggle()
 
-// Modify configuration on-the-fly
-window.RuneCutConfig.checkInterval = 3000
-window.RuneCutConfig.combat.healthThreshold = 80
+// View configuration
+window.RuneCutConfig
 
-// Test individual modules
-ForestryModule.run()
-MiningModule.run()
-CombatModule.run()
+// Modify settings
+window.RuneCutConfig.combat.autoFight = false
+window.RuneCutConfig.debugMode = true
 
-// Debug game state
-GameState.getPlayerStats()
+// Access utilities
+window.RuneCutUtils.log('Custom message')
+window.RuneCutUtils.findButton('Chop Trees')
+
+// Check game state
+GameState.getHealthPercent()
 GameState.isInCombat()
-GameState.getInventory()
+GameState.getCurrentActivity()
 ```
 
-## 🔍 Troubleshooting
+## 🎯 How It Works
 
-### Bot Not Working?
-1. Open console (F12) and check for errors
-2. Verify modules are enabled in CONFIG
-3. Check that you've mapped the game elements
-4. Make sure you're on the game page (not just the itch.io page)
+### Intelligent Activity Management
 
-### How to Map Elements?
-See **`RUNECUT_MAPPING_GUIDE.md`** for complete tutorial with examples.
+1. **Priority System**: Bot checks activities in priority order
+2. **State Detection**: Reads what you're currently doing
+3. **Auto-Switching**: When idle, starts the next priority task
+4. **Combat First**: Prioritizes combat if enabled
+5. **Resource Processing**: Smelts ores when available
 
-### Finding Selectors
+### Combat System
+
+The bot intelligently manages combat:
+
+1. **Navigate** to your preferred location (Swamp by default)
+2. **Start Fight** - Clicks "Start Fight" button
+3. **Monitor Health** - Constantly checks your HP
+4. **Auto-Eat** - Eats food when HP drops below 30%
+5. **Emergency Flee** - Flees if HP drops below 15%
+6. **Repeat** - After combat, starts next fight
+
+### Gathering Skills
+
+For Forestry, Mining, and Fishing:
+
+1. Navigate to the correct tab
+2. Start the activity (Chop Trees / Mine / Spot Fish)
+3. Let it run in the background
+4. Switch to other activities as needed
+
+## 📊 Activity Priority Examples
+
+### Focus on Combat
 ```javascript
-// In browser console (F12):
-document.querySelectorAll('button')  // Find all buttons
-document.querySelector('.tree-oak')  // Find by class
-document.getElementById('chop-btn')  // Find by ID
-
-// Find by text content
-Array.from(document.querySelectorAll('button'))
-    .find(btn => btn.textContent.includes('Chop'))
+window.RuneCutConfig.activityPriority = ['combat']
+window.RuneCutConfig.forestry.autoStart = false
+window.RuneCutConfig.mining.autoStart = false
+// Now bot ONLY does combat
 ```
 
-## 📋 Mapping Checklist
+### Peaceful Skilling
+```javascript
+window.RuneCutConfig.combat.enabled = false
+window.RuneCutConfig.activityPriority = ['smithing', 'forestry', 'mining', 'fishing']
+// No combat, just gathering and processing
+```
 
-- [ ] Install Tampermonkey
-- [ ] Install script
-- [ ] Read RUNECUT_MAPPING_GUIDE.md
-- [ ] Map Forestry module
-- [ ] Map Mining module
-- [ ] Map Fishing module
-- [ ] Map Combat module
-- [ ] Map Crafting/Smithing/Cooking
-- [ ] Configure priorities
-- [ ] Test and optimize
-- [ ] Enjoy automation!
+### Balanced Gameplay
+```javascript
+window.RuneCutConfig.activityPriority = ['combat', 'smithing', 'forestry', 'mining', 'fishing']
+// Default - combat first, then processing, then gathering
+```
 
-## 🎓 Learning Resources
+## 🔧 Troubleshooting
 
-### For Beginners
-- **What is Tampermonkey?** - A browser extension that runs custom JavaScript on websites
-- **What is a selector?** - A way to find specific elements on a webpage (like buttons)
-- **How do I find selectors?** - Use browser DevTools (F12) and the inspect tool
+### Bot Not Starting?
+1. **Check console** (F12) for errors
+2. **Reload the page** (Ctrl+R)
+3. **Verify script is enabled** in Tampermonkey
+4. **Check URL** - must be on the game page, not itch.io homepage
 
-### Guides Included
-1. **RUNECUT_SETUP.md** - Start here for installation
-2. **RUNECUT_MAPPING_GUIDE.md** - Complete mapping tutorial with examples
-3. This README - Overview and quick reference
+### Bot Not Doing Anything?
+1. **Check if modules are enabled**:
+   ```javascript
+   window.RuneCutConfig.forestry.enabled
+   window.RuneCutConfig.combat.enabled
+   ```
+2. **Enable debug mode**:
+   ```javascript
+   window.RuneCutConfig.debugMode = true
+   ```
+3. **Check console** for activity logs
 
-## 🔒 Responsible Use
+### Combat Not Working?
+1. **Verify combat is enabled**:
+   ```javascript
+   window.RuneCutConfig.combat.autoFight = true
+   ```
+2. **Check you have food** (for auto-eat)
+3. **Try different location**:
+   ```javascript
+   window.RuneCutConfig.combat.preferredLocation = 'Volcano'
+   ```
 
-- This bot is for **educational and personal use**
-- Respect the game developer's work
-- Consider supporting the developer if you enjoy the game
-- Don't use bots to harm other players or break ToS
-- Be aware that automation may affect game balance
+### Bot Running Too Fast/Slow?
+```javascript
+// Slower (every 5 seconds)
+window.RuneCutConfig.checkInterval = 5000
 
-## 💡 Tips
+// Faster (every 1 second)
+window.RuneCutConfig.checkInterval = 1000
+```
 
-1. **Start simple** - Map one module at a time
-2. **Test frequently** - Verify each change works before moving on
-3. **Use logging** - Enable debugMode to see what the bot is doing
-4. **Read the guides** - They contain detailed examples and solutions
-5. **Be patient** - Mapping takes time but only needs to be done once
+### Health Not Showing?
+This is normal if you haven't unlocked combat yet. The health display will work once you can fight.
 
-## 🤝 Contributing
+## 🎓 Advanced Usage
 
-This is a personal project template, but feel free to:
-- Customize for your own use
-- Share improvements with others
-- Learn from the code structure
-- Build similar bots for other games
+### Custom Activity Loop
 
-## 📝 Version History
+```javascript
+// Only do forestry and mining, alternate between them
+window.RuneCutConfig.activityPriority = ['forestry', 'mining']
+window.RuneCutConfig.combat.enabled = false
+window.RuneCutConfig.fishing.enabled = false
+window.RuneCutConfig.autoSwitchActivities = true
+```
 
-- **v1.0.0** - Initial release with full module templates and comprehensive guides
+### Combat Farming Build
+
+```javascript
+// Pure combat with aggressive settings
+window.RuneCutConfig.combat.healthThreshold = 50  // Eat early
+window.RuneCutConfig.combat.fleeThreshold = 25    // Safe flee point
+window.RuneCutConfig.combat.preferredLocation = 'Mountains'  // Harder enemies
+window.RuneCutConfig.forestry.autoStart = false
+window.RuneCutConfig.mining.autoStart = false
+```
+
+### Resource Gathering Build
+
+```javascript
+// Focus on gathering, minimal combat
+window.RuneCutConfig.combat.enabled = false
+window.RuneCutConfig.smithing.autoSmelt = true
+window.RuneCutConfig.activityPriority = ['smithing', 'forestry', 'mining', 'fishing']
+```
+
+## 📋 Features Checklist
+
+- ✅ Forestry automation (tree chopping)
+- ✅ Mining automation (ore collection)
+- ✅ Fishing automation (fish catching)
+- ✅ Smithing automation (ore smelting)
+- ✅ Combat automation (fighting & healing)
+- ✅ Health monitoring & display
+- ✅ Activity detection & switching
+- ✅ Priority-based task management
+- ✅ Emergency flee system
+- ✅ Auto-eat when low health
+- ✅ Draggable control panel
+- ✅ Real-time status updates
+- ✅ Console logging & debugging
+- ✅ Fully configurable settings
+- ✅ No mapping required - works out of the box!
+
+## 🎨 UI Features
+
+- **Draggable Panel** - Click and drag to reposition
+- **Color-Coded Health** - Red (low), Orange (medium), Green (high)
+- **Status Indicators** - Know exactly what's happening
+- **Minimize Function** - Hide panel while bot runs
+- **Styled Interface** - Clean, modern design
+
+## 💡 Tips & Tricks
+
+1. **Start Small** - Enable one activity at a time to learn how it works
+2. **Watch Console** - Open F12 to see detailed bot activity
+3. **Adjust Priorities** - Reorder activities based on your goals
+4. **Combat Safety** - Set conservative health thresholds when learning
+5. **AFK Play** - Bot can run while you're away (but monitor it!)
+6. **Save Often** - Use the game's save feature regularly
+
+## 🔒 Safety & Ethics
+
+- **Personal Use** - This bot is for your own entertainment and learning
+- **Fair Play** - Be respectful of the game developer
+- **No Exploitation** - Don't use bot to grief or harm others
+- **Support Devs** - If you enjoy the game, consider supporting the developer
+- **Educational** - Great for learning JavaScript and DOM manipulation!
+
+## 🐛 Known Limitations
+
+- **Cooking** - Not fully automated (requires item selection)
+- **Crafting** - Not fully automated (requires item selection)
+- **Construction/Royal Service/Alchemy** - Not implemented (game-dependent)
+- **Inventory Management** - Doesn't auto-sort or organize items
+- **Bank Usage** - Doesn't interact with banking (if game has it)
+
+## 🔄 Version History
+
+### v2.0.0 (Current)
+- ✅ **Fully functional and mapped** - No configuration needed!
+- ✅ All major activities working (Forestry, Mining, Fishing, Smithing, Combat)
+- ✅ Intelligent health management
+- ✅ Activity detection and auto-switching
+- ✅ Beautiful UI with drag & drop
+- ✅ Comprehensive console commands
+- ✅ Real-time status updates
+
+### v1.0.0 (Previous)
+- Template version requiring manual mapping
+- Educational guides included
+
+## 📝 FAQ
+
+**Q: Do I need to map anything?**
+A: No! This version is fully mapped and ready to use.
+
+**Q: Will this get me banned?**
+A: This is a single-player game. There's no anti-cheat system.
+
+**Q: Can I modify the bot?**
+A: Absolutely! The code is well-commented and easy to customize.
+
+**Q: Does it work on mobile?**
+A: No, Tampermonkey requires a desktop browser.
+
+**Q: Can I run multiple bots?**
+A: Only one bot per game window. Multiple windows = multiple bots.
+
+**Q: How do I update the bot?**
+A: Replace the old script with new code in Tampermonkey, then save.
 
 ## 🎯 What's Next?
 
-1. ✅ Install the script
-2. 📖 Read **RUNECUT_MAPPING_GUIDE.md**
-3. 🔧 Map your first module (Forestry recommended)
-4. 🧪 Test it works
-5. 🚀 Map remaining modules
-6. 🎮 Enjoy automated gameplay!
+1. ✅ Install the bot (follow Quick Start)
+2. ✅ Start it up and watch it work
+3. ✅ Customize settings to your playstyle
+4. ✅ Open console to see all the details
+5. ✅ Enjoy automated RuneCut!
+
+## 📞 Support
+
+- **Check Console First** - Most issues show error messages (F12)
+- **Try Default Settings** - Reset config to defaults if something breaks
+- **Read This README** - Most questions are answered here
+- **Experiment** - The bot is safe to experiment with!
 
 ---
 
-**Game:** [RuneCut by AngryPickle92](https://angrypickle92.itch.io/runecut)
+## 🚀 Ready to Go!
 
-**Documentation:**
-- Setup Guide: `RUNECUT_SETUP.md`
-- Mapping Tutorial: `RUNECUT_MAPPING_GUIDE.md`
+The bot is **100% functional** and requires **zero configuration**. Just:
 
-**Need Help?** Start with the mapping guide - it has detailed examples for every module!
+1. Install Tampermonkey
+2. Copy the script
+3. Visit the game
+4. Click START
+5. Profit! 🎉
+
+**Game URL**: https://html-classic.itch.zone/html/14955607-1422326/RuneCut/index.html
+
+**Happy Botting!** 🤖⚡
+
+---
+
+*Made with ❤️ for the RuneCut community*
+
+*v2.0.0 - Fully Functional Edition*
